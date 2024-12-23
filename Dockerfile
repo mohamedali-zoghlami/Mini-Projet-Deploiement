@@ -5,10 +5,12 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container
-COPY . .
+COPY flask_app/requirements.txt .
 
 # Install the required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY flask_app .
 
 # Expose the port Flask runs on
 EXPOSE 5000
